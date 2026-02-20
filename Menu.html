@@ -43,7 +43,7 @@
 
 <body>
 
-  <div class="sticky-top bg-dark text-white py-3 mb-4 shadow" style="z-index: 1020;">
+  <header class="sticky-top bg-dark text-white py-3 mb-4 shadow" style="z-index: 1020;">
     <div class="container">
       <h1 class="text-center mb-4">La bruja</h1>
 
@@ -52,151 +52,172 @@
 
         <!-- Navegación (Izquierda) -->
         <div class="col-12 col-md-8">
-          <ul class="nav nav-pills">
-            <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="#desayunos">Desayunos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#platos">Platos Fuertes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#bebidas">Bebidas</a>
-            </li>
-          </ul>
+          <nav>
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="#desayunos">Desayunos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#platos">Platos Fuertes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#bebidas">Bebidas</a>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <!-- Buscador (Derecha) -->
         <div class="col-12 col-md-4">
+          <label for="buscador" class="visually-hidden">Buscar platillo</label>
           <input type="text" id="buscador" class="form-control" placeholder="Buscar producto...">
         </div>
 
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="container mt-5">
+  <main class="container mt-5">
 
     <!-- Sección Desayunos -->
     <h2 id="desayunos" class="mb-3">Desayunos</h2>
-    <div class="row g-4 mb-5">
+    <div class="row g-4 mb-5" data-masonry='{"percentPosition": true }'>
 
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Huevos al Gusto</h5>
             <p class="card-text">Revueltos, estrellados o a la mexicana.</p>
             <h6 class="text-success">$80 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Chilaquiles Rojos</h5>
             <p class="card-text">Con pollo, crema, queso y cebolla.</p>
             <h6 class="text-success">$95 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Hot Cakes</h5>
             <p class="card-text">Tres piezas con miel de maple y mantequilla.</p>
             <h6 class="text-success">$85 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
     </div>
 
     <!-- Sección Platos Principales -->
     <h2 id="platos" class="mb-3">Platos Principales</h2>
-    <div class="row g-4">
+    <div class="row g-4" data-masonry='{"percentPosition": true }'>
 
       <!-- Producto Original 1 -->
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Hamburguesa Especial</h5>
             <p class="card-text">Carne 100% res con queso cheddar.</p>
             <h6 class="text-success">$120 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
       <!-- Producto Original 2 -->
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Pizza Italiana</h5>
             <p class="card-text">Salsa natural y queso mozzarella.</p>
             <h6 class="text-success">$150 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
       <!-- Producto Original 3 -->
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Tacos de Arrachera</h5>
             <p class="card-text">Orden de 3 tacos con guacamole.</p>
             <h6 class="text-success">$110 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
     </div>
 
     <!-- Sección Bebidas -->
     <h2 id="bebidas" class="mb-3 mt-5">Bebidas</h2>
-    <div class="row g-4">
+    <div class="row g-4" data-masonry='{"percentPosition": true }'>
 
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Refresco Artesanal</h5>
             <p class="card-text">Bebida natural sin conservadores.</p>
             <h6 class="text-success">$35 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Agua del Día</h5>
             <p class="card-text">Horchata, Jamaica o Tamarindo.</p>
             <h6 class="text-success">$25 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
-      <div class="col-12 col-md-4 producto">
-        <div class="card shadow h-100">
-          <img src="https://via.placeholder.com/400x250" class="card-img-top">
+      <div class="col-sm-6 col-lg-4 producto">
+        <article class="card shadow">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFoto del platillo%3C/text%3E%3C/svg%3E"
+            class="card-img-top" alt="Foto del platillo">
           <div class="card-body">
             <h5 class="card-title">Cerveza Nacional</h5>
             <p class="card-text">Clara u oscura bien fría.</p>
             <h6 class="text-success">$45 MXN</h6>
           </div>
-        </div>
+        </article>
       </div>
 
     </div>
 
-  </div>
+  </main>
 
   <!-- Footer -->
   <footer class="bg-dark text-white pt-5 pb-4 mt-5">
@@ -274,6 +295,9 @@
     });
   </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+    async></script>
 </body>
 
 </html>
