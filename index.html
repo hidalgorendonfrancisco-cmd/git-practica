@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>menus digitales</title>
+  <title>alacarta | Menú Digital Professional</title>
+  <meta name="description"
+    content="Disfruta de la mejor cocina regional en La Parrilla Bruja. Desayunos, especialidades mexicanas, bebidas y más.">
+  <meta name="keywords" content="menú digital, restaurante, comida mexicana, desayunos, la parrilla bruja">
   <!-- Google Fonts: Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,101 +19,84 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
+    :root {
+      --primary-accent: #dc3545;
+      --breakfast-color: #f1c40f;
+      --mexican-color: #e74c3c;
+      --drinks-color: #3498db;
+      --kids-color: #2ecc71;
+      --desserts-color: #9b59b6;
+      --dark-header: #212529;
+      --bg-overlay: rgba(42, 50, 58, 0.98);
+      /* Baseline (Móvil) */
+      --dish-name-size: 1.45rem;
+      --menu-item-padding: 1rem;
+      --menu-item-margin: 0.6rem;
+      --section-scroll-margin: 180px;
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
-    /* Ajustes para Móvil (Letra más grande, Margen de Salto y Menú Overlay) */
-    @media (max-width: 991px) {
+    /* Estilos del Menú Overlay (Móvil First: Oculto por defecto, manejado por clases de Bootstrap) */
+    .navbar-collapse {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--bg-overlay);
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1050;
+      transition: all 0.4s ease-in-out;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
 
-      /* margen de salto agresivo para móviles/tablets */
-      h2[id] {
-        scroll-margin-top: 180px !important;
-      }
+    .navbar-collapse.show {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
 
-      .menu-item-name {
-        font-size: 1.25rem !important;
-      }
+    .navbar-nav {
+      font-size: 1.5rem;
+      gap: 1.5rem !important;
+      padding: 0 !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-      .menu-item-price {
-        font-size: 1.2rem !important;
-      }
+    .navbar-toggler {
+      z-index: 1100;
+      border: none;
+    }
 
-      .menu-item-description {
-        font-size: 1rem !important;
-      }
+    .navbar-toggler:not(.collapsed) {
+      display: none !important;
+    }
 
-      .menu-item {
-        padding: 1.5rem !important;
-        margin-bottom: 1rem;
-      }
-
-      .navbar-collapse {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(42, 50, 58, 0.98);
-        /* Fondo casi opaco */
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1050;
-        transition: all 0.4s ease-in-out;
+    @keyframes fadeInUp {
+      from {
         opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
+        transform: translateY(20px);
       }
 
-      .navbar-collapse.show {
+      to {
         opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
+        transform: translateY(0);
       }
+    }
 
-      .navbar-nav {
-        font-size: 1.5rem;
-        /* Letra gigante para el menú overlay */
-        gap: 1.5rem !important;
-        margin: 0 !important;
-        /* Eliminar márgenes que descentran */
-        padding: 0 !important;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .navbar-toggler {
-        z-index: 1100;
-        /* Por encima del overlay */
-        border: none;
-      }
-
-      /* OCULTAR el botón de hamburguesa cuando el menú está ABIERTO */
-      .navbar-toggler:not(.collapsed) {
-        display: none !important;
-      }
-
-      /* Animación para los enlaces */
-      .navbar-collapse.show .nav-item {
-        animation: fadeInUp 0.5s ease forwards;
-        opacity: 0;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+    .navbar-collapse.show .nav-item {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
     }
 
     .nav-link {
@@ -123,9 +109,23 @@
     /* El hover debe aplicarse tanto a enlaces normales como al activo */
     .nav-link:hover,
     .nav-pills .nav-link.active:hover {
-      background-color: #dc3545;
-      /* Rojo de Bootstrap */
+      background-color: var(--primary-accent);
       color: white !important;
+    }
+
+    /* Estilos de precios y descripción (fuera de media queries para limpieza) */
+    .menu-item-price {
+      font-weight: 700;
+      color: #1a73e8;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+
+    .menu-item-description {
+      font-style: italic;
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0;
     }
 
     /* Estilo base para el activo (sin hover) */
@@ -139,13 +139,49 @@
     .menu-item {
       background: white;
       border-radius: 12px;
-      padding: 1.25rem;
+      padding: var(--menu-item-padding);
+      margin-bottom: var(--menu-item-margin);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       border: 1px solid rgba(0, 0, 0, 0.05);
       height: 100%;
       cursor: pointer;
       position: relative;
+    }
+
+    /* UPGRADES para Escritorio (Solo un switch para PC) */
+    @media (min-width: 992px) {
+      :root {
+        --dish-name-size: 1.55rem;
+        --menu-item-padding: 0.85rem 1rem;
+        --menu-item-margin: 0.5rem;
+        --section-scroll-margin: 100px;
+      }
+
+      .navbar-brand {
+        font-size: 2.25rem !important;
+        max-width: 70%;
+      }
+
+      /* En escritorio el menú NO es un overlay */
+      .navbar-collapse {
+        position: static;
+        height: auto;
+        background-color: transparent;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        display: flex !important;
+        flex-grow: 1;
+      }
+
+      .navbar-nav {
+        font-size: 1rem;
+        flex-direction: row;
+        gap: 0 !important;
+        margin-left: auto !important;
+        /* Asegurar alineación a la derecha en PC */
+      }
     }
 
     .menu-item:hover {
@@ -162,7 +198,7 @@
     }
 
     .menu-item-name {
-      font-size: 1.15rem;
+      font-size: var(--dish-name-size);
       font-weight: 600;
       color: #2c3e50;
       margin: 0;
@@ -170,28 +206,46 @@
       padding-right: 1rem;
     }
 
-    .menu-item-price {
-      font-weight: 700;
-      color: #1a73e8;
-      /* Un azul tecnológico limpio */
-      font-size: 1.1rem;
-      white-space: nowrap;
-    }
-
-    .menu-item-description {
-      font-style: italic;
-      color: #666;
-      font-size: 0.9rem;
-      margin: 0;
-    }
-
     /* Ajuste para que los títulos no queden ocultos tras el header fijo */
     h2[id] {
+      scroll-margin-top: var(--section-scroll-margin);
       border-bottom: 2px solid #f8f9fa;
       padding-bottom: 0.5rem;
+      padding-left: 1rem;
+      border-left: 5px solid transparent;
+      /* Base para el color */
       color: #2c3e50;
       font-weight: 700;
+      display: flex;
+      align-items: center;
     }
+
+    /* Clases de Acento de Color */
+    .section-desayunos {
+      border-left-color: #f1c40f !important;
+    }
+
+    .section-mexicana {
+      border-left-color: #e74c3c !important;
+    }
+
+    .section-bebidas {
+      border-left-color: #3498db !important;
+    }
+
+    .section-infantil {
+      border-left-color: #2ecc71 !important;
+    }
+
+    .section-postres {
+      border-left-color: #9b59b6 !important;
+    }
+
+    .h2-icon {
+      font-size: 1.5rem;
+      margin-right: 0.75rem;
+    }
+
 
     /* UX: Badges */
     .badge-premium {
@@ -217,31 +271,42 @@
       line-height: 1.1;
     }
 
-    @media (min-width: 992px) {
-      .navbar-brand {
-        font-size: 2.25rem !important;
-        /* Grande en escritorio */
-        max-width: 70%;
-      }
+
+
+    /* Footer Visuals */
+    .footer-fb {
+      color: #1877f2;
     }
 
-    /* Social Icons Placeholder Style */
-    .social-icon {
-      font-size: 1.2rem;
-      width: 40px;
-      height: 40px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .footer-tw {
+      color: #1da1f2;
+    }
+
+    .footer-ig {
+      color: #e4405f;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      z-index: 99;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-accent);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
       transition: all 0.3s;
     }
 
-    .social-icon:hover {
-      background: #dc3545;
-      color: white !important;
+    #backToTop:hover {
       transform: scale(1.1);
+      background-color: #b02a37;
     }
   </style>
 </head>
@@ -270,19 +335,19 @@
 
         <ul class="navbar-nav nav-pills ms-auto gap-2 py-3 py-md-0 text-center">
           <li class="nav-item">
-            <a class="nav-link text-white" href="#desayunos">Desayunos</a>
+            <a class="nav-link text-white" href="#desayunos" title="Ir a desayunos">Desayunos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#platos">Combinación Mexicana</a>
+            <a class="nav-link text-white" href="#platos" title="Ir a combinación mexicana">Combinación Mexicana</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#bebidas">Bebidas</a>
+            <a class="nav-link text-white" href="#bebidas" title="Ir a bebidas">Bebidas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#infantil">Menú infantil</a>
+            <a class="nav-link text-white" href="#infantil" title="Ir a menú infantil">Menú infantil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#postres">Postres</a>
+            <a class="nav-link text-white" href="#postres" title="Ir a postres">Postres</a>
           </li>
         </ul>
       </div>
@@ -291,12 +356,12 @@
 
   <main class="container mt-5">
 
-    <!-- Fila única fluida para todas las secciones -->
-    <div class="row g-5">
+    <!-- Fila única fluida para todas las secciones (Gutter reducido de 5 a 4) -->
+    <div class="row g-4">
 
       <!-- 1. Desayunos -->
       <section class="col-12 col-lg-6">
-        <h2 id="desayunos" class="mb-4">Desayunos</h2>
+        <h2 id="desayunos" class="mb-2 section-desayunos">Desayunos</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
@@ -349,7 +414,7 @@
 
       <!-- 2. Combinación Mexicana -->
       <section class="col-12 col-lg-6">
-        <h2 id="platos" class="mb-4">Combinación Mexicana</h2>
+        <h2 id="platos" class="mb-2 section-mexicana">Combinación Mexicana</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
@@ -397,7 +462,7 @@
 
       <!-- 3. Bebidas -->
       <section class="col-12 col-lg-6">
-        <h2 id="bebidas" class="mb-4">Bebidas</h2>
+        <h2 id="bebidas" class="mb-2 section-bebidas">Bebidas</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
@@ -440,7 +505,7 @@
 
       <!-- 4. Menú infantil -->
       <section class="col-12 col-lg-6">
-        <h2 id="infantil" class="mb-4">Menú infantil</h2>
+        <h2 id="infantil" class="mb-2 section-infantil">Menú infantil</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
@@ -483,7 +548,7 @@
 
       <!-- 5. Postres -->
       <section class="col-12 col-lg-6">
-        <h2 id="postres" class="mb-4">Postres</h2>
+        <h2 id="postres" class="mb-2 section-postres">Postres</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
@@ -565,16 +630,25 @@
           <p>© 2024 La Bruja. Todos los derechos reservados.</p>
         </div>
         <div class="col-md-5 col-lg-4">
-          <div class="text-center text-md-end">
-            <ul class="list-unstyled list-inline">
-              <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white"
-                  style="font-size: 23px;">FB</a></li>
-              <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white"
-                  style="font-size: 23px;">TW</a></li>
-              <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white"
-                  style="font-size: 23px;">IG</a></li>
+          <nav class="text-center text-md-end" aria-label="Social links">
+            <ul class="list-unstyled list-inline mb-0">
+              <li class="list-inline-item">
+                <a href="#" class="social-icon text-white footer-fb" aria-label="Facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="social-icon text-white footer-tw" aria-label="Twitter/X">
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="social-icon text-white footer-ig" aria-label="Instagram">
+                  <i class="bi bi-instagram"></i>
+                </a>
+              </li>
             </ul>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -594,6 +668,11 @@
       </div>
     </div>
   </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Volver arriba" aria-label="Volver al inicio">
+    <i class="bi bi-arrow-up-short" style="font-size: 2rem;"></i>
+  </button>
 
   <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
@@ -658,6 +737,20 @@
         history.pushState(null, null, targetId);
       });
     });
+
+    // Botón Volver Arriba
+    const backToTopBtn = document.getElementById("backToTop");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+
+    backToTopBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   </script>
 </body>
 
