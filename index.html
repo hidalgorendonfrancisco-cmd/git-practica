@@ -29,14 +29,25 @@
       --dark-header: #212529;
       --bg-overlay: rgba(42, 50, 58, 0.98);
       /* Baseline (Móvil) */
-      --dish-name-size: 1.45rem;
+      --dish-name-size: 1.3rem;
+      /* modifica tamaño de letra en los moviles */
       --menu-item-padding: 1rem;
-      --menu-item-margin: 0.6rem;
+      /* modifica padding de los items */
+      --menu-item-margin: 0.05rem;
+      /* modifica margin de los items */
       --section-scroll-margin: 180px;
+      /* modifica margin de las secciones */
     }
 
     html {
       scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+      margin: 0;
+      background-attachment: fixed;
     }
 
     /* Estilos del Menú Overlay (Móvil First: Oculto por defecto, manejado por clases de Bootstrap) */
@@ -152,15 +163,19 @@
     /* UPGRADES para Escritorio (Solo un switch para PC) */
     @media (min-width: 992px) {
       :root {
-        --dish-name-size: 1.55rem;
+        --dish-name-size: 1.35rem;
+        /* modifica tamaño de letra en los moviles */
         --menu-item-padding: 0.85rem 1rem;
-        --menu-item-margin: 0.5rem;
+        /* modifica padding de los items */
+        --menu-item-margin: 0.05rem;
+        /* modifica margin de los items */
         --section-scroll-margin: 100px;
+        /* modifica margin de las secciones */
       }
 
       .navbar-brand {
         font-size: 2.25rem !important;
-        max-width: 70%;
+        max-width: none;
       }
 
       /* En escritorio el menú NO es un overlay */
@@ -221,7 +236,11 @@
     }
 
     /* Clases de Acento de Color */
-    .section-desayunos {
+    .section-infantil {
+      border-left-color: #2ecc71 !important;
+    }
+
+    .section-nuevos {
       border-left-color: #f1c40f !important;
     }
 
@@ -233,7 +252,7 @@
       border-left-color: #3498db !important;
     }
 
-    .section-infantil {
+    .section-pescados {
       border-left-color: #2ecc71 !important;
     }
 
@@ -316,7 +335,7 @@
   <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow py-2 mb-4" style="z-index: 1020;">
     <div class="container">
       <!-- Logo/Título (Título Principal de la página para SEO) -->
-      <h1 class="h2 mb-0 fw-bold text-white text-wrap navbar-brand">
+      <h1 class="h2 mb-0 fw-bold text-white navbar-brand">
         La parrilla bruja
       </h1>
 
@@ -333,9 +352,12 @@
           data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close"
           style="width: 2rem; height: 2rem;"></button>
 
-        <ul class="navbar-nav nav-pills ms-auto gap-2 py-3 py-md-0 text-center">
+        <ul class="navbar-nav nav-pills mx-auto ms-lg-auto gap-2 py-3 py-md-0 text-center">
           <li class="nav-item">
-            <a class="nav-link text-white" href="#desayunos" title="Ir a desayunos">Desayunos</a>
+            <a class="nav-link text-white" href="#infantil" title="Ir a menú infantil">Menú Infantil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#nuevos" title="Ir a platillos nuevos">Platillos Nuevos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#platos" title="Ir a combinación mexicana">Combinación Mexicana</a>
@@ -344,7 +366,7 @@
             <a class="nav-link text-white" href="#bebidas" title="Ir a bebidas">Bebidas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#infantil" title="Ir a menú infantil">Menú infantil</a>
+            <a class="nav-link text-white" href="#pescados" title="Ir a pescados y mariscos">Pescados y Mariscos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#postres" title="Ir a postres">Postres</a>
@@ -359,114 +381,332 @@
     <!-- Fila única fluida para todas las secciones (Gutter reducido de 5 a 4) -->
     <div class="row g-4">
 
-      <!-- 1. Desayunos -->
+      <!-- 1. Menú Infantil -->
       <section class="col-12 col-lg-6">
-        <h2 id="desayunos" class="mb-2 section-desayunos">Desayunos</h2>
+        <h2 id="infantil" class="mb-2 section-infantil">Menú Infantil</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHuevos al Gusto%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Huevo al gusto preparados al momento">
+                class="d-none card-img-top" alt="Nuggets">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">
-                  Huevos al Gusto
-                  <span class="badge bg-warning text-dark badge-premium ms-2" title="Popular">
-                    <i class="bi bi-star-fill"></i>
-                  </span>
-                </h3>
-                <span class="menu-item-price">$80.00</span>
+                <h3 class="menu-item-name">Nuggets</h3>
+                <span class="menu-item-price">$75.00</span>
               </div>
-              <p class="menu-item-description">(Revueltos, estrellados o a la mexicana)</p>
             </article>
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EChilaquiles Rojos%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Chilaquiles rojos tradicionales con crema y queso">
+                class="d-none card-img-top" alt="Salchipulpo">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">
-                  Chilaquiles Rojos
-                  <span class="badge bg-danger badge-premium ms-2" title="Recomendado">
-                    <i class="bi bi-hand-thumbs-up-fill"></i>
-                  </span>
-                </h3>
-                <span class="menu-item-price">$95.00</span>
+                <h3 class="menu-item-name">Salchipulpo</h3>
+                <span class="menu-item-price">$75.00</span>
               </div>
-              <p class="menu-item-description">(Con pollo, crema, queso y cebolla)</p>
             </article>
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHot Cakes%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Hot Cakes">
+                class="d-none card-img-top" alt="Mariposa Monarca">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">Hot Cakes</h3>
-                <span class="menu-item-price">$85.00</span>
+                <h3 class="menu-item-name">Mariposa Monarca</h3>
+                <span class="menu-item-price">$70.00</span>
               </div>
-              <p class="menu-item-description">(Tres piezas con miel de maple y mantequilla)</p>
+              <p class="menu-item-description">(2 Quesadillas de tortilla de harina con jamón y salchicha)</p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- 2. Combinación Mexicana -->
+      <!-- 2. Platillos Nuevos -->
+      <section class="col-12 col-lg-6">
+        <h2 id="nuevos" class="mb-2 section-nuevos">Platillos Nuevos</h2>
+        <div class="row">
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHuevos al Gusto%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Costras de Queso">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Costras de Queso y Carne</h3>
+                <span class="menu-item-price">$65.00</span>
+              </div>
+              <p class="menu-item-description">1 carne (Res, Cerdo o Pollo)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EChilaquiles Rojos%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Sincronizadas">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Sincronizadas</h3>
+                <span class="menu-item-price">$45.00</span>
+              </div>
+              <p class="menu-item-description">1pz (tortilla de harina, jamón, queso amarillo y queso)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHot Cakes%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de Guacamole">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Guacamole</h3>
+                <span class="menu-item-price">$45.00</span>
+              </div>
+              <!-- <p class="menu-item-description">(Tres piezas con miel de maple y mantequilla)</p> -->
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHot Cakes%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Chorizo Argentino">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Chorizo Argentino</h3>
+                <span class="menu-item-price">$60.00</span>
+              </div>
+              <p class="menu-item-description">(Acompañado de frijoles charros)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHot Cakes%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Chuletas Ahumadas a la Hawaina">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Chuletas Ahumadas a la Hawaina</h3>
+                <span class="menu-item-price">$95.00</span>
+              </div>
+              <p class="menu-item-description">(con cebolla, piña y un chile Suizo)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHot Cakes%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Picaña 200 Grs.">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Picaña 200 Grs. aprox.</h3>
+                <span class="menu-item-price">$200.00</span>
+              </div>
+              <p class="menu-item-description">(Acompañado de papas al cilantro, cebollitas y aguacate)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHot Cakes%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Picaña 400 Grs.">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Picaña 400 Grs. aprox.</h3>
+                <span class="menu-item-price">$340.00</span>
+              </div>
+              <p class="menu-item-description">(Acompañado de papas al cilantro, cebollitas y aguacate)</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Combinación Mexicana -->
       <section class="col-12 col-lg-6">
         <h2 id="platos" class="mb-2 section-mexicana">Combinación Mexicana</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHamburguesa Especial%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Hamburguesa Especial">
+                class="d-none card-img-top" alt="Sopa Azteca">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">Hamburguesa Especial</h3>
-                <span class="menu-item-price">$120.00</span>
+                <h3 class="menu-item-name">Sopa Azteca</h3>
+                <span class="menu-item-price">$55.00</span>
               </div>
-              <p class="menu-item-description">(Carne 100% res con queso cheddar)</p>
+              <!-- <p class="menu-item-description">(Carne 100% res con queso cheddar)</p> -->
             </article>
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EPizza Italiana%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Pizza Italiana">
+                class="d-none card-img-top" alt="Sopa de Champiñones">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">Pizza Italiana</h3>
-                <span class="menu-item-price">$150.00</span>
+                <h3 class="menu-item-name">Sopa de Champiñones</h3>
+                <span class="menu-item-price">$100.00</span>
               </div>
-              <p class="menu-item-description">(Salsa natural y queso mozzarella)</p>
+              <!-- <p class="menu-item-description">(Salsa natural y queso mozzarella)</p> -->
             </article>
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Tacos de arrachera de primera calidad con guacamole">
+                class="d-none card-img-top" alt="Sopa de Medula">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">
-                  Tacos de Arrachera
-                  <span class="badge bg-primary badge-premium ms-2" title="Top">
-                    <i class="bi bi-award-fill"></i>
-                  </span>
-                </h3>
+                <h3 class="menu-item-name">Sopa de Medula</h3>
                 <span class="menu-item-price">$110.00</span>
               </div>
-              <p class="menu-item-description">(Orden de 3 tacos con guacamole)</p>
+              <!-- <p class="menu-item-description">(Orden de 3 tacos con guacamole)</p> -->
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de Quesadillas">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Quesadillas</h3>
+                <span class="menu-item-price">$50.00</span>
+              </div>
+              <p class="menu-item-description">(3 pz con tortilla de harina)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de Quesadillas">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Quesadillas</h3>
+                <span class="menu-item-price">$45.00</span>
+              </div>
+              <p class="menu-item-description">(3 pz con tortilla de maíz)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de Choriquesadillas">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Choriquesadillas</h3>
+                <span class="menu-item-price">$70.00</span>
+              </div>
+              <p class="menu-item-description">(3 pz con tortilla de harina, chorizo y queso)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de nopales">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Nopales</h3>
+                <span class="menu-item-price">$45.00</span>
+              </div>
+              <!-- <p class="menu-item-description">(3 pz con tortilla de harina, chorizo y queso)</p> -->
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de nopal suizo">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Nopal Suizo</h3>
+                <span class="menu-item-price">$65.00</span>
+              </div>
+              <p class="menu-item-description">(Nopal con jamón y queso fundido)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Ensalada de nopal">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Ensalada de Nopal</h3>
+                <span class="menu-item-price">$35.00</span>
+              </div>
+              <p class="menu-item-description">(con cebolla, chile, cilantro y jitomate)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de aguacate">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Aguacate</h3>
+                <span class="menu-item-price">$25.00</span>
+              </div>
+              <!-- <p class="menu-item-description">(con cebolla, chile, cilantro y jitomate)</p> -->
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de cebollitas">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Cebollitas</h3>
+                <span class="menu-item-price">$22.00</span>
+              </div>
+              <!-- <p class="menu-item-description">(con cebolla, chile, cilantro y jitomate)</p> -->
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de tortillas de harina">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Tortillas de Harina</h3>
+                <span class="menu-item-price">$45.00</span>
+              </div>
+              <p class="menu-item-description">(5 pz)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de chiles suizos">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Chiles Suizos</h3>
+                <span class="menu-item-price">$70.00</span>
+              </div>
+              <p class="menu-item-description">(3 pz)</p>
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Papa Norteña">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Papa Norteña</h3>
+                <span class="menu-item-price">$45.00</span>
+              </div>
+              <!-- <p class="menu-item-description">(3 pz)</p> -->
+            </article>
+          </div>
+          <div class="col-12 producto">
+            <article class="menu-item" role="button" tabindex="0">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETacos de Arrachera%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Orden de Papas a la Francesa">
+              <div class="menu-item-header">
+                <h3 class="menu-item-name">Orden de Papas a la Francesa</h3>
+                <span class="menu-item-price">$70.00</span>
+              </div>
+              <!-- <p class="menu-item-description">(3 pz)</p> -->
             </article>
           </div>
         </div>
       </section>
 
-      <!-- 3. Bebidas -->
+      <!-- 4. Bebidas -->
       <section class="col-12 col-lg-6">
         <h2 id="bebidas" class="mb-2 section-bebidas">Bebidas</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ERefresco Artesanal%3C/text%3E%3C/svg%3E"
                 class="d-none card-img-top" alt="Refresco Artesanal">
               <div class="menu-item-header">
@@ -478,7 +718,7 @@
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EAgua del Día%3C/text%3E%3C/svg%3E"
                 class="d-none card-img-top" alt="Agua del Día">
               <div class="menu-item-header">
@@ -490,7 +730,7 @@
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ECerveza Nacional%3C/text%3E%3C/svg%3E"
                 class="d-none card-img-top" alt="Cerveza Nacional">
               <div class="menu-item-header">
@@ -503,56 +743,56 @@
         </div>
       </section>
 
-      <!-- 4. Menú infantil -->
+      <!-- 5. Pescados y Mariscos -->
       <section class="col-12 col-lg-6">
-        <h2 id="infantil" class="mb-2 section-infantil">Menú infantil</h2>
+        <h2 id="pescados" class="mb-2 section-pescados">Pescados y Mariscos</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHuevos al Gusto%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Huevos al Gusto">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ECoctel de Camarón%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Coctel de Camarón">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">Nuggets</h3>
-                <span class="menu-item-price">$75.00</span>
+                <h3 class="menu-item-name">Coctel de Camarón</h3>
+                <span class="menu-item-price">$140.00</span>
               </div>
               <!-- <p class="menu-item-description">(Revueltos, estrellados o a la mexicana)</p> -->
             </article>
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EChilaquiles Rojos%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Chilaquiles Rojos">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFilete de Pescado%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Filete de Pescado">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">Salchipulpo</h3>
-                <span class="menu-item-price">$75.00</span>
+                <h3 class="menu-item-name">Filete de Pescado</h3>
+                <span class="menu-item-price">$135.00</span>
               </div>
-              <!-- <p class="menu-item-description">(Con pollo, crema, queso y cebolla)</p> -->
+              <p class="menu-item-description">A la plancha, al mojo de ajo o empanizado</p>
             </article>
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHot Cakes%3C/text%3E%3C/svg%3E"
-                class="d-none card-img-top" alt="Hot Cakes">
+              <img loading="lazy"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3ETostada de Ceviche%3C/text%3E%3C/svg%3E"
+                class="d-none card-img-top" alt="Tostada de Ceviche">
               <div class="menu-item-header">
-                <h3 class="menu-item-name">Mariposa Monarca</h3>
-                <span class="menu-item-price">$70.00</span>
+                <h3 class="menu-item-name">Tostada de Ceviche</h3>
+                <span class="menu-item-price">$45.00</span>
               </div>
-              <p class="menu-item-description">(2 Quesadillas de tortilla de harina con jamón y salchicha)</p>
+              <p class="menu-item-description">Pescado marinado con cebolla y cilantro</p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- 5. Postres -->
+      <!-- 6. Postres -->
       <section class="col-12 col-lg-6">
         <h2 id="postres" class="mb-2 section-postres">Postres</h2>
         <div class="row">
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EFlan Napolitano%3C/text%3E%3C/svg%3E"
                 class="d-none card-img-top" alt="Flan Napolitano">
               <div class="menu-item-header">
@@ -564,7 +804,7 @@
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EPastel de Chocolate%3C/text%3E%3C/svg%3E"
                 class="d-none card-img-top" alt="Pastel de Chocolate">
               <div class="menu-item-header">
@@ -576,7 +816,7 @@
           </div>
           <div class="col-12 producto">
             <article class="menu-item" role="button" tabindex="0">
-              <img
+              <img loading="lazy"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236c757d'%3EHelado Artesanal%3C/text%3E%3C/svg%3E"
                 class="d-none card-img-top" alt="Helado Artesanal">
               <div class="menu-item-header">
@@ -724,7 +964,8 @@
         }
 
         // Calcular posición: Posición del elemento + scroll actual - altura del header colapsado
-        const headerHeight = 90;
+        const headerElement = document.querySelector('header');
+        const headerHeight = headerElement ? headerElement.offsetHeight : 0;
         const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
 
